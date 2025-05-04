@@ -1,71 +1,71 @@
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 60px 80px; 
-    background: linear-gradient(135deg, #67bfff, #dff3ff); 
-    color: white;
-    flex-wrap: wrap;
-    min-height: 500px;
-    border-radius: 16px; 
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    margin: 40px; 
-  }
-  
-  .hero-text {
-    max-width: 500px;
-    flex: 1;
-    padding-right: 20px;
-  }
-  
-  .hero-text h1 {
-    font-size: 3em;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .hero-text p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .FirstButton,
-  .SecondButton {
-    background-color: white;
-    color: #3366cc;
-    font-weight: bold;
-    padding: 14px 24px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .FirstButton:hover,
-  .SecondButton:hover {
-    background-color: #e0e7ff;
-  }
-  
-  .hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-  }
-  
-  .hero-image img {
-    width: 100%;
-    max-width: 450px; 
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  
+  background: linear-gradient(to bottom right, #6ec6ff, #e0f7fa);
+  padding: 60px;
+  border-radius: 20px;
+  margin: 40px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 40px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.FirstButton,
+.SecondButton {
+  background-color: white;
+  color: #3366cc;
+  font-weight: bold;
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.FirstButton:hover,
+.SecondButton:hover {
+  background-color: #e0e7ff;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  margin-top: 20px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
+}
