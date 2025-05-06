@@ -1,3 +1,10 @@
+body {
+  background-color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .hero {
   background: linear-gradient(to bottom right, #6ec6ff, #e0f7fa);
   padding: 60px;
@@ -39,7 +46,7 @@
 .FirstButton,
 .SecondButton {
   background-color: white;
-  color: #3366cc;
+  color: #4285f4;
   font-weight: bold;
   padding: 14px 24px;
   border-radius: 10px;
@@ -69,3 +76,4 @@
   height: auto;
   border-radius: 20px;
 }
+

@@ -1,0 +1,73 @@
+.filter-section {
+    background: white;
+    margin: 40px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .filter-section h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .filter-options select {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .apply-button {
+    background-color: #4285f4;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .apply-button:hover {
+    background-color: #3367d6;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column;
+    }
+  
+    .hero-text {
+      padding-right: 0;
+      text-align: center;
+    }
+  
+    .hero-buttons {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .filter-options {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .filter-options select,
+    .apply-button {
+      width: 100%;
+    }
+  }
+  
+  

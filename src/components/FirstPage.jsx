@@ -2,6 +2,7 @@ import React from "react";
 import "./FirstPage.css";
 import carImage from "../images/car.jpg";
 import Navbar from "./Navbar.js"; 
+import FilterSearch from "./FilterSearch.js";
 
 const FirstPage = () => {
   return (
@@ -25,6 +26,7 @@ const FirstPage = () => {
           </div>
         </div>
       </div>
+      <FilterSearch/>
     </div>
   );
 };
