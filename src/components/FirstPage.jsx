@@ -1,6 +1,6 @@
 import React from "react";
 import "./FirstPage.css";
-import carImage from "../images/car.jpg";
+import carImage from "../assets/car.jpg";
 import Navbar from "./Navbar.js"; 
 import FilterSearch from "./FilterSearch.js";
 

@@ -1,0 +1,87 @@
+.fourth-page {
+    font-family: sans-serif;
+  }
+  
+  .cta-section {
+    background-color: #4da3ff;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn-primary {
+    background-color: white;
+    color: #4da3ff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background-color: #e0e0e0;
+    color: #999;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+  }
+  .footer {
+    background-color: #111;
+    color: white;
+    padding: 40px 20px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column p,
+  .footer-column li {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    list-style: none;
+  }
+  
+  .social-icons span {
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    text-align: center;
+  }
+  
+  .footer-links span {
+    margin: 0 10px;
+    font-size: 0.8rem;
+    color: #ccc;
+  }
+  
