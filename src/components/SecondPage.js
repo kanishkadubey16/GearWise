@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./SecondPage.css";
 
 import corollaImage from '../assets/corolla.jpg';
@@ -14,6 +15,7 @@ import rangeRoverImage from '../assets/RangeRoverSport.jpg';
 
 const carData = [
   {
+    id: 1,
     name: "Corolla",
     price: "$23,500",
     image: corollaImage,
@@ -25,6 +27,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 2,
     name: "Civic",
     price: "$24,650",
     image: civicImage,
@@ -36,6 +39,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 3,
     name: "Tesla Model S",
     price: "$89,990",
     image: teslaImage,
@@ -47,6 +51,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 4,
     name: "Porsche Taycan",
     price: "$92,500",
     image: porscheImage,
@@ -58,6 +63,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 5,
     name: "BMW i8",
     price: "$147,500",
     image: bmwImage,
@@ -69,6 +75,7 @@ const carData = [
     status: "Used"
   },
   {
+    id: 6,
     name: "Audi RS7",
     price: "$123,000",
     image: audiImage,
@@ -80,6 +87,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 7,
     name: "Mercedes-Benz EQS",
     price: "$104,400",
     image: mercedesImage,
@@ -91,6 +99,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 8,
     name: "Lamborghini Huracán",
     price: "$261,274",
     image: lamborghiniImage,
@@ -102,6 +111,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 9,
     name: "Lucid Air",
     price: "$87,400",
     image: lucidImage,
@@ -113,6 +123,7 @@ const carData = [
     status: "New"
   },
   {
+    id: 10,
     name: "Range Rover Sport",
     price: "$83,000",
     image: rangeRoverImage,
@@ -128,6 +139,8 @@ const carData = [
 const fallbackImage = "https://via.placeholder.com/300x200?text=No+Image";
 
 const SecondPage = () => {
+  const navigate = useNavigate(); // ✅ Needed for dynamic routing
+
   return (
     <div className="second-page">
       <div className="header">
@@ -144,8 +157,8 @@ const SecondPage = () => {
       </div>
 
       <div className="car-grid">
-        {carData.map((car, index) => (
-          <div className="car-card" key={index}>
+        {carData.map((car) => (
+          <div className="car-card" key={car.id}>
             <img
               src={car.image}
               alt={car.name}
@@ -165,7 +178,12 @@ const SecondPage = () => {
                 <span>{car.status}</span>
               </div>
               <div className="buttons">
-                <button className="view-btn">View Details</button>
+                <button
+                  className="view-btn"
+                  onClick={() => navigate(`/car/${car.id}`)} // ✅ Dynamic route
+                >
+                  View Details
+                </button>
                 <button className="compare-btn">Compare</button>
               </div>
             </div>

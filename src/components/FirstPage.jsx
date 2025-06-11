@@ -1,13 +1,22 @@
+// FirstPage.js
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./FirstPage.css";
 import carImage from "../assets/car.jpg";
-import Navbar from "./Navbar.js"; 
-import FilterSearch from "./FilterSearch.js";
+import Navbar from "./Navbar";
+import FilterSearch from "./FilterSearch";
 
 const FirstPage = () => {
+  const navigate = useNavigate();
+
+  const handleStartComparing = () => {
+    navigate("/second");
+  };
+
   return (
     <div>
-      <Navbar /> 
+      <Navbar />
       <div className="hero">
         <div className="hero-content">
           <div className="hero-text">
@@ -17,7 +26,9 @@ const FirstPage = () => {
               your next car purchase.
             </p>
             <div className="hero-buttons">
-              <button className="FirstButton">Start Comparing</button>
+              <button className="FirstButton" onClick={handleStartComparing}>
+                Start Comparing
+              </button>
               <button className="SecondButton">Car Finder Quiz</button>
             </div>
           </div>
@@ -26,7 +37,7 @@ const FirstPage = () => {
           </div>
         </div>
       </div>
-      <FilterSearch/>
+      <FilterSearch />
     </div>
   );
 };
