@@ -7,7 +7,7 @@ import carImage from "../assets/car.jpg";
 import Navbar from "./Navbar";
 import FilterSearch from "./FilterSearch";
 
-const FirstPage = () => {
+const FirstPage = ({ standalone = false }) => {
   const navigate = useNavigate();
 
   const handleStartComparing = () => {
@@ -16,7 +16,7 @@ const FirstPage = () => {
 
   return (
     <div>
-      <Navbar />
+      {!standalone && <Navbar />}
       <div className="hero">
         <div className="hero-content">
           <div className="hero-text">
@@ -37,7 +37,7 @@ const FirstPage = () => {
           </div>
         </div>
       </div>
-      <FilterSearch />
+      {!standalone && <FilterSearch />}
     </div>
   );
 };

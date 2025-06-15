@@ -9,15 +9,24 @@ import CarDetails from "./components/CarDetails";
 
 import "./App.css";
 
+function HomePage() {
+  return (
+    <>
+      <FirstPage />
+      <SecondPage />
+      <WhyChoose />
+      <FourthPage />
+    </>
+  );
+}
+
 function App() {
   return (
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={<FirstPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/second" element={<SecondPage />} />
-          <Route path="/whychoose" element={<WhyChoose />} />
-          <Route path="/fourth" element={<FourthPage />} />
           <Route path="/car/:id" element={<CarDetails />} />
         </Routes>
       </div>
