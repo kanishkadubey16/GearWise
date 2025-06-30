@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <>
       <FirstPage />
-      <SecondPage />
+      {/* <SecondPage /> */}
       <WhyChoose />
       <FourthPage />
     </>

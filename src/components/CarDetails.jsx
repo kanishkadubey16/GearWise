@@ -1,10 +1,10 @@
 import React from "react";
 import "./CarDetails.css";
-import carData from "../data/carData"; // adjust path as needed
+import carData from "../data/carData"; 
 import { useParams } from "react-router-dom";
 import Corolla_side from "../assets/Corolla_side.jpg";
 import Corolla_interior from "../assets/Corolla_interior.jpg";
-import Corolla_front from "../assets/ Corrola_front.jpg";
+import Corolla_front from "../assets/ Corolla_front.jpg";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ const CarDetails = () => {
         </div>
       </div>
 
-      {/* 🔹 Gallery Section */}
+
       <div className="gallery-section">
   <h4>Car Gallery</h4>
   <div className="gallery-images">
@@ -49,7 +49,7 @@ const CarDetails = () => {
 
 
 
-      {/* 🔹 Key Features */}
+
       <div className="key-features">
         <h4>Key Features</h4>
         <div className="features-list">
@@ -60,14 +60,14 @@ const CarDetails = () => {
         </div>
       </div>
 
-      {/* 🔹 Actions */}
+
       <div className="actions">
         <button className="test-drive">📅 Schedule Test Drive</button>
         <button className="financing">🧾 Get Financing</button>
         <button className="contact">📞 Contact Dealer</button>
       </div>
 
-      {/* 🔹 Specifications */}
+
       <div className="specs">
         <h4>Vehicle Specifications</h4>
         <ul>
@@ -80,7 +80,7 @@ const CarDetails = () => {
         </ul>
       </div>
 
-      {/* 🔹 Financing Estimate */}
+
       <div className="finance-section">
         <h4>Monthly Payment Estimate</h4>
         <p><strong>Down Payment:</strong> $10,000</p>
