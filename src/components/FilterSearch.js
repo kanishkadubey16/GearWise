@@ -1,4 +1,4 @@
-// FilterSearch.jsx
+/// components/FilterSearch.js
 import React, { useState } from "react";
 import "./FilterSearch.css";
 
@@ -12,7 +12,10 @@ const FilterSearch = ({ onFilterChange }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFilters((prev) => ({ ...prev, [name]: value }));
+    setFilters((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const applyFilters = () => {
@@ -30,7 +33,6 @@ const FilterSearch = ({ onFilterChange }) => {
           <option value="Tesla">Tesla</option>
           <option value="BMW">BMW</option>
           <option value="Audi">Audi</option>
-          <option value="Mercedes-Benz">Mercedes-Benz</option>
           <option value="Lamborghini">Lamborghini</option>
         </select>
 
@@ -38,17 +40,16 @@ const FilterSearch = ({ onFilterChange }) => {
           <option value="">Fuel Type</option>
           <option value="Gasoline">Gasoline</option>
           <option value="Diesel">Diesel</option>
-          <option value="Electric">Electric</option>
           <option value="Hybrid">Hybrid</option>
-          <option value="Mild Hybrid">Mild Hybrid</option>
+          <option value="Electric">Electric</option>
         </select>
 
         <select name="priceRange" onChange={handleChange}>
           <option value="">Price Range</option>
-          <option value="<25000">Below $25,000</option>
-          <option value="25000-50000">$25,000 - $50,000</option>
-          <option value="50000-100000">$50,000 - $100,000</option>
-          <option value=">100000">$100,000+</option>
+          <option value="<2500000">Below ₹25,00,000</option>
+          <option value="2500000-5000000">₹25,00,000 - ₹50,00,000</option>
+          <option value="5000000-10000000">₹50,00,000 - ₹1 Cr</option>
+          <option value=">10000000">Above ₹1 Cr</option>
         </select>
 
         <select name="condition" onChange={handleChange}>

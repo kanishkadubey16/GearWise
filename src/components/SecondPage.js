@@ -1,12 +1,29 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./SecondPage.css";
 import carData from "../data/carData";
 
 const fallbackImage = "https://via.placeholder.com/300x200?text=No+Image";
 
 const SecondPage = () => {
+  const [selectedCars, setSelectedCars] = useState([]);
   const navigate = useNavigate();
+
+  const handleSelectCar = (car) => {
+    if (selectedCars.some(selectedCar => selectedCar.id === car.id)) {
+      setSelectedCars(selectedCars.filter(selectedCar => selectedCar.id !== car.id));
+    } else {
+      setSelectedCars([...selectedCars, car]);
+    }
+  };
+
+  const handleCompare = () => {
+    if (selectedCars.length >= 2) {
+      navigate('/compare', { state: { selectedCars } });
+    } else {
+      alert('Please select at least two cars to compare.');
+    }
+  };
 
   return (
     <div className="second-page">
@@ -22,7 +39,6 @@ const SecondPage = () => {
           </select>
         </div>
       </div>
-
       <div className="car-grid">
         {carData.map((car) => (
           <div className="car-card" key={car.id}>
@@ -50,12 +66,24 @@ const SecondPage = () => {
                 >
                   View Details
                 </button>
-                <button className="compare-btn">Compare</button>
+                <button
+                  className="compare-btn"
+                  onClick={() => handleSelectCar(car)}
+                >
+                  {selectedCars.some(selectedCar => selectedCar.id === car.id) ? 'Selected' : 'Compare'}
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      <button
+        className="compare-selected"
+        onClick={handleCompare}
+        disabled={selectedCars.length < 2}
+      >
+        Compare Selected
+      </button>
     </div>
   );
 };

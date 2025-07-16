@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ onSearch }) => {
@@ -7,7 +8,7 @@ const Navbar = ({ onSearch }) => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchQuery(value);
-    onSearch(value); // send the search text to the parent
+    onSearch(value);
   };
 
   return (
@@ -17,9 +18,9 @@ const Navbar = ({ onSearch }) => {
       </div>
       <div className="navbar-right">
         <div className="navbar-links">
-          <a href="#">Home</a>
-          <a href="#">Compare</a>
-          <a href="#">Saved Cars</a>
+          <Link to="/">Home</Link>
+          <Link to="/second">Compare</Link>
+          <Link to="/about">About</Link> 
         </div>
         <div className="search-bar">
           <input
