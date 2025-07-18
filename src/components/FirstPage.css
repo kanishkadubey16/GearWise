@@ -43,6 +43,7 @@ body {
   gap: 20px;
 }
 
+/* ✅ First and Second buttons have the same styles */
 .FirstButton,
 .SecondButton {
   background-color: white;
@@ -52,6 +53,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   border: none;
+  font-size: 16px;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

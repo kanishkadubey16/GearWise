@@ -1,0 +1,135 @@
+/* Root styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Quiz container */
+.quiz-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 30px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+/* Title */
+.quiz-container h2 {
+  font-size: 52px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #111;
+}
+
+/* Question text */
+.quiz-container p {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 30px 0 16px;
+  color: #333;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Dropdowns (for selects) */
+.quiz-container select {
+  font-size: 20px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  background-color: #f5f5f5;
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin-bottom: 30px;
+  transition: border 0.3s ease;
+}
+
+.quiz-container select:focus {
+  border-color: #888;
+  outline: none;
+}
+
+/* Button */
+.quiz-container button {
+  padding: 18px 45px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.quiz-container button:hover {
+  background-color: #333;
+}
+
+/* Results heading */
+.quiz-container h3 {
+  font-size: 36px;
+  color: #222;
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* List of results */
+.quiz-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 30px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.quiz-container li {
+  background: #f0f0f0;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 40px 20px;
+  }
+
+  .quiz-container h2 {
+    font-size: 38px;
+  }
+
+  .quiz-container p {
+    font-size: 24px;
+  }
+
+  .quiz-container select {
+    font-size: 18px;
+  }
+
+  .quiz-container button {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .quiz-container li {
+    font-size: 18px;
+  }
+}
