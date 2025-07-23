@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./FirstPage.css";
 import carImage from "../assets/car.jpg";
 import carData from "../data/carData";
-import Navbar from "./Navbar";
 import FilterSearch from "./FilterSearch";
 
-const FirstPage = () => {
+const FirstPage = ({ searchQuery }) => {
   const navigate = useNavigate();
 
   const [filters, setFilters] = useState({
@@ -15,12 +14,6 @@ const FirstPage = () => {
     priceRange: "",
     condition: "",
   });
-
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearch = (value) => {
-    setSearchTerm(value);
-  };
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
@@ -36,10 +29,12 @@ const FirstPage = () => {
 
   const filteredCars = carData
     .filter((car) => {
-      const matchesMake = !filters.make || car.name.toLowerCase().includes(filters.make.toLowerCase());
-      const matchesFuel = !filters.fuelType || car.fuelType === filters.fuelType;
-      const matchesCondition = !filters.condition || car.condition === filters.condition;
-
+      const matchesMake =
+        !filters.make || car.name.toLowerCase().includes(filters.make.toLowerCase());
+      const matchesFuel =
+        !filters.fuelType || car.fuelType === filters.fuelType;
+      const matchesCondition =
+        !filters.condition || car.condition === filters.condition;
       const price = car.price;
       const matchesPriceRange = (() => {
         if (!filters.priceRange) return true;
@@ -48,12 +43,11 @@ const FirstPage = () => {
         const [min, max] = filters.priceRange.split("-").map(Number);
         return price >= min && price <= max;
       })();
-
       return matchesMake && matchesFuel && matchesCondition && matchesPriceRange;
     })
     .filter((car) => {
-      if (!searchTerm) return true;
-      const lowerSearch = searchTerm.toLowerCase();
+      if (!searchQuery) return true;
+      const lowerSearch = searchQuery.toLowerCase();
       return (
         car.name.toLowerCase().includes(lowerSearch) ||
         car.description.toLowerCase().includes(lowerSearch)
@@ -61,10 +55,7 @@ const FirstPage = () => {
     });
 
   return (
-    <div>
-      {/* Navbar with search support */}
-      <Navbar onSearch={handleSearch} />
-
+    <div className="first-page">
       {/* Hero Section */}
       <div className="hero">
         <div className="hero-content">
@@ -73,7 +64,6 @@ const FirstPage = () => {
             <p>
               Compare models, features, and prices to make an informed decision on your next car purchase.
             </p>
-
             <div className="hero-buttons">
               <button className="FirstButton" onClick={handleStartComparing}>
                 Start Comparing
@@ -83,7 +73,6 @@ const FirstPage = () => {
               </button>
             </div>
           </div>
-
           <div className="hero-image">
             <img src={carImage} alt="Car" />
           </div>
@@ -105,7 +94,9 @@ const FirstPage = () => {
                 <img src={car.image} alt={car.name} />
                 <h3>{car.name}</h3>
                 <p>{car.description}</p>
-                <p><strong>₹{parseInt(car.price).toLocaleString()}</strong></p>
+                <p>
+                  <strong>₹{parseInt(car.price).toLocaleString()}</strong>
+                </p>
               </div>
             ))
           )}

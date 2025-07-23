@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./About.css";
 import group_photo from "../assets/group_photo.jpg";
+import LoginSignup from "../LoginSighup/LoginSignup"; // ✅ Adjust the path as needed
 
 const About = () => {
+  const [showLogin, setShowLogin] = useState(false); // ✅ Controls modal
+
+  const openPopup = (e) => {
+    e.preventDefault();      // Prevent redirect to /signin
+    setShowLogin(true);      // Show modal
+  };
+
   return (
     <div className="about-page">
       {/* Hero Section */}
@@ -38,50 +46,53 @@ const About = () => {
         <p>Our platform empowers you to:</p>
         <ul>
           <li>
-            Instantly <strong>search for cars</strong> by make, model, fuel type, price range, and more using powerful filters.
+            Instantly <strong>search for cars</strong> by make, model, fuel
+            type, price range, and more using powerful filters.
           </li>
           <li>
-            <strong>Compare multiple vehicles side-by-side</strong>—see features, specs, and prices in a single glance, so you never miss a detail.
+            <strong>Compare multiple vehicles side-by-side</strong>—see
+            features, specs, and prices in a single glance.
           </li>
           <li>
-            Explore <strong>expert reviews and trusted ratings</strong> to gain real-world insights into every model.
+            Explore <strong>expert reviews and trusted ratings</strong> to gain
+            real-world insights into every model.
           </li>
           <li>
-            Enjoy a fast, modern, and user-friendly experience designed for both new and seasoned car buyers.
+            Enjoy a fast, modern, and user-friendly experience for all buyers.
           </li>
         </ul>
         <p>
-          GearWise isn’t just a comparison site—it’s your smart companion for making informed automotive decisions, every step of the way.
+          GearWise isn’t just a comparison site—it’s your smart companion for
+          making informed automotive decisions.
         </p>
         <div className="badges">
           <span>✔ Unbiased Reviews</span>
           <span>✔ Expert Analysis</span>
           <span>✔ Real-time Data</span>
         </div>
-        <img
-          className="team-photo"
-          src={group_photo}
-          alt="GearWise Team"
-        />
+        <img className="team-photo" src={group_photo} alt="GearWise Team" />
       </section>
 
       {/* Mission and Values */}
       <section className="mission">
         <h2>Our Mission & Values</h2>
         <p>
-          We're committed to empowering every car buyer with the knowledge and tools they need to make confident decisions.
+          We're committed to empowering every car buyer with the knowledge and
+          tools they need to make confident decisions.
         </p>
         <div className="values">
           <div className="value-box">
             <h3>🔍 Transparency</h3>
             <p>
-              We believe in complete transparency in our reviews, pricing, and methodology. No hidden agendas, just honest insights.
+              We believe in complete transparency in our reviews, pricing, and
+              methodology. No hidden agendas, just honest insights.
             </p>
           </div>
           <div className="value-box">
             <h3>🚀 Innovation</h3>
             <p>
-              We constantly evolve our platform with the latest technology to provide the most accurate and up-to-date information.
+              We constantly evolve our platform with the latest technology to
+              provide the most accurate and up-to-date information.
             </p>
           </div>
         </div>
@@ -91,8 +102,8 @@ const About = () => {
       <section className="developer">
         <h2>Meet the Developer</h2>
         <p>
-          Hello! I'm <strong>Kanishka Dubey</strong>, a passionate front-end developer who built GearWise from scratch.
-          My goal was to build a reliable, fast, and user-friendly platform that helps people compare and find the best cars easily.
+          Hello! I'm <strong>Kanishka Dubey</strong>, a passionate front-end
+          developer who built GearWise from scratch.
         </p>
         <a
           href="https://github.com/kanishkadubey16"
@@ -111,8 +122,8 @@ const About = () => {
       <section className="experts">
         <h2>Expert Reviews</h2>
         <p>
-          Our world-class team of automotive experts brings decades of combined experience in engineering, journalism,
-          and industry analysis.
+          Our world-class team of automotive experts brings decades of combined
+          experience in engineering, journalism, and industry analysis.
         </p>
         <div className="expert-cards">
           <div className="expert-card">
@@ -142,7 +153,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ✅ Footer with Popup trigger added */}
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-column">
@@ -156,14 +167,21 @@ const About = () => {
             </div>
           </div>
           <div className="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/second">Compare Cars</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/signin">Sign In</a></li>
-            </ul>
-          </div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/second">Compare Cars</a></li>
+            <li><a href="/about">About</a></li>
+            <li>
+              <a href="#" role="button" onClick={(e) => {
+                e.preventDefault();
+                setShowLogin(true);
+              }}>
+                Sign In
+              </a>
+            </li>
+          </ul>
+        </div>
           <div className="footer-column contact-details">
             <h4>Contact Us</h4>
             <p>📞 +91 - 9425971086</p>
@@ -187,6 +205,11 @@ const About = () => {
           </div>
         </div>
       </footer>
+
+      {/* ✅ LoginSignup Modal if active */}
+      {showLogin && (
+        <LoginSignup onClose={() => setShowLogin(false)} />
+      )}
     </div>
   );
 };

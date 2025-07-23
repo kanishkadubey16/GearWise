@@ -1,14 +1,15 @@
+// Navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ onSearch }) => {
+const Navbar = ({ onSearch, onShowLogin }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchQuery(value);
-    onSearch(value);
+    if (onSearch) onSearch(value); // ✅ Trigger search handler
   };
 
   return (
@@ -20,7 +21,7 @@ const Navbar = ({ onSearch }) => {
         <div className="navbar-links">
           <Link to="/">Home</Link>
           <Link to="/second">Compare</Link>
-          <Link to="/about">About</Link> 
+          <Link to="/about">About</Link>
         </div>
         <div className="search-bar">
           <input
@@ -32,7 +33,9 @@ const Navbar = ({ onSearch }) => {
           <span className="search-icon">🔍</span>
         </div>
         <div className="navbar-signin">
-          <button className="signin-btn">Sign In</button>
+          <button className="signin-btn" onClick={onShowLogin}>
+            Sign In
+          </button>
         </div>
       </div>
     </nav>

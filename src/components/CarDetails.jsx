@@ -1,26 +1,33 @@
 import React from "react";
 import "./CarDetails.css";
-import carData from "../data/carData"; 
+import carData from "../data/carData";
 import { useParams } from "react-router-dom";
 
+// 📊 Estimate monthly payment
 const calculateMonthlyPayment = (price) => {
   const downPayment = 10000;
-  const loanTerm = 48; // 48 months
-  const interestRate = 0.05; // 5% interest rate
+  const loanTerm = 48; // months
+  const interestRate = 0.05; // 5%
   const principal = price - downPayment;
   const monthlyInterestRate = interestRate / 12;
   const monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
-  return monthlyPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return monthlyPayment.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 };
 
 const CarDetails = () => {
   const { id } = useParams();
   const car = carData.find((car) => car.id === parseInt(id));
+
   if (!car) {
     return <div className="car-not-found">Car not found</div>;
   }
+
   return (
     <div className="car-details-container">
+      {/* Car Title & Price */}
       <div className="car-header">
         <h2>
           {car.year} {car.name}
@@ -31,6 +38,8 @@ const CarDetails = () => {
           <span className="on-road">On-Road Price</span>
         </h3>
       </div>
+
+      {/* Main Car Image */}
       <div className="car-image-section">
         <img src={car.image} alt={car.name} className="main-image" />
         <div className="tag">
@@ -41,32 +50,33 @@ const CarDetails = () => {
           <button>🔁</button>
         </div>
       </div>
-      {car.images && (
-        <div className="gallery-section">
-          <h4>Car Gallery</h4>
-          <div className="gallery-images">
-            {car.images.map((img, idx) => (
-              <a key={idx} href={img} target="_blank" rel="noreferrer">
-                <img src={img} alt={`View ${idx + 1}`} />
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+
+      {/* ❌ Removed Gallery Section */}
+      {/* ❌ Removed: <div className="gallery-section">...</div> */}
+
+      {/* Key Features */}
       <div className="key-features">
         <h4>Key Features</h4>
         <div className="features-list">
-          <div className="feature-box">🛡️ Safety<br /><span>5-Star Rating</span></div>
-          <div className="feature-box">⚙️ AWD<br /><span>All-Wheel Drive</span></div>
-          <div className="feature-box">🌱 Eco Mode<br /><span>Fuel Efficient</span></div>
-          <div className="feature-box">📱 Connected<br /><span>Smart Features</span></div>
+          <div className="feature-box">
+            🛡️ Safety<br /><span>5-Star Rating</span>
+          </div>
+          <div className="feature-box">
+            ⚙️ AWD<br /><span>All-Wheel Drive</span>
+          </div>
+          <div className="feature-box">
+            🌱 Eco Mode<br /><span>Fuel Efficient</span>
+          </div>
+          <div className="feature-box">
+            📱 Connected<br /><span>Smart Features</span>
+          </div>
         </div>
       </div>
-      <div className="actions">
-        <button className="test-drive">📅 Schedule Test Drive</button>
-        <button className="financing">🧾 Get Financing</button>
-        <button className="contact">📞 Contact Dealer</button>
-      </div>
+
+      {/* ❌ Removed Action Buttons Section */}
+      {/* ❌ Removed: <div className="actions">...</div> */}
+
+      {/* Specs */}
       <div className="specs">
         <h4>Vehicle Specifications</h4>
         <ul>
@@ -78,6 +88,8 @@ const CarDetails = () => {
           <li><strong>Price:</strong> ₹{parseFloat(car.price).toLocaleString()}</li>
         </ul>
       </div>
+
+      {/* Monthly Payment Estimate */}
       <div className="finance-section">
         <h4>Monthly Payment Estimate</h4>
         <p><strong>Down Payment:</strong> 10,000</p>
@@ -87,6 +99,8 @@ const CarDetails = () => {
           {calculateMonthlyPayment(car.price)}
         </p>
       </div>
+
+      {/* Car Description */}
       <div className="description-section">
         <h4>Vehicle Description</h4>
         <p>{car.descriptionDetails}</p>
