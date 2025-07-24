@@ -3,11 +3,10 @@ import "./CarDetails.css";
 import carData from "../data/carData";
 import { useParams } from "react-router-dom";
 
-// 📊 Estimate monthly payment
 const calculateMonthlyPayment = (price) => {
   const downPayment = 10000;
-  const loanTerm = 48; // months
-  const interestRate = 0.05; // 5%
+  const loanTerm = 48; 
+  const interestRate = 0.05;
   const principal = price - downPayment;
   const monthlyInterestRate = interestRate / 12;
   const monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
@@ -27,7 +26,6 @@ const CarDetails = () => {
 
   return (
     <div className="car-details-container">
-      {/* Car Title & Price */}
       <div className="car-header">
         <h2>
           {car.year} {car.name}
@@ -39,7 +37,6 @@ const CarDetails = () => {
         </h3>
       </div>
 
-      {/* Main Car Image */}
       <div className="car-image-section">
         <img src={car.image} alt={car.name} className="main-image" />
         <div className="tag">
@@ -51,10 +48,6 @@ const CarDetails = () => {
         </div>
       </div>
 
-      {/* ❌ Removed Gallery Section */}
-      {/* ❌ Removed: <div className="gallery-section">...</div> */}
-
-      {/* Key Features */}
       <div className="key-features">
         <h4>Key Features</h4>
         <div className="features-list">
@@ -65,7 +58,7 @@ const CarDetails = () => {
             ⚙️ AWD<br /><span>All-Wheel Drive</span>
           </div>
           <div className="feature-box">
-            🌱 Eco Mode<br /><span>Fuel Efficient</span>
+            Eco Mode<br /><span>Fuel Efficient</span>
           </div>
           <div className="feature-box">
             📱 Connected<br /><span>Smart Features</span>
@@ -73,10 +66,6 @@ const CarDetails = () => {
         </div>
       </div>
 
-      {/* ❌ Removed Action Buttons Section */}
-      {/* ❌ Removed: <div className="actions">...</div> */}
-
-      {/* Specs */}
       <div className="specs">
         <h4>Vehicle Specifications</h4>
         <ul>
@@ -89,7 +78,6 @@ const CarDetails = () => {
         </ul>
       </div>
 
-      {/* Monthly Payment Estimate */}
       <div className="finance-section">
         <h4>Monthly Payment Estimate</h4>
         <p><strong>Down Payment:</strong> 10,000</p>
@@ -100,7 +88,6 @@ const CarDetails = () => {
         </p>
       </div>
 
-      {/* Car Description */}
       <div className="description-section">
         <h4>Vehicle Description</h4>
         <p>{car.descriptionDetails}</p>
